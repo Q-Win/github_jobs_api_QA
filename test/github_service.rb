@@ -35,4 +35,11 @@ class GithubServiceTest < Minitest::Test
     assert_includes job_data_2[0]["description"], "Ruby"
   end
 
+  def test_it_can_return_full_time_positions
+    service = GithubService.new
+    job_data = service.get_positions_for_multiple_params("location=Chicago&full_time=true")
+
+    assert_equal "Full Time", job_data[0]["type"]
+  end
+
 end

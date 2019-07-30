@@ -12,7 +12,7 @@ class GithubService
   end
 
   def get_positions_for_multiple_params(params)
-    get_json("/positions.json?location=#{params}")
+    get_json("/positions.json?#{params}")
   end
 
   def get_json(url)
