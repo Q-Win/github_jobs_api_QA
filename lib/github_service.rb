@@ -7,6 +7,10 @@ class GithubService
     get_json("/positions.json?")
   end
 
+  def get_positions_for_city(city)
+    get_json("/positions.json?location=#{city}")
+  end
+
   def get_json(url)
     response = conn.get(url)
 

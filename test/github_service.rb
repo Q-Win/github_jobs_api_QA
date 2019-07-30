@@ -18,4 +18,11 @@ class GithubServiceTest < Minitest::Test
     assert_equal 50, job_data.length
   end
 
+  def test_it_can_positions_for_a_city
+    service = GithubService.new
+    job_data = service.get_positions_for_city("Chicago")
+
+    assert_equal "Chicago, IL", job_data[0]["location"]
+  end
+
 end
