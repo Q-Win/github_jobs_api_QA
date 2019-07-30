@@ -11,4 +11,11 @@ class GithubServiceTest < Minitest::Test
     assert_instance_of GithubService, service
   end
 
+  def test_it_can_positions
+    service = GithubService.new
+    job_data = service.get_postions
+
+    assert_equal 50, job_data.length
+  end
+
 end
