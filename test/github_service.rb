@@ -11,14 +11,14 @@ class GithubServiceTest < Minitest::Test
     assert_instance_of GithubService, service
   end
 
-  def test_it_can_positions
+  def test_it_can_get_positions
     service = GithubService.new
     job_data = service.get_postions
 
     assert_equal 50, job_data.length
   end
 
-  def test_it_can_positions_for_a_city
+  def test_it_can_get_positions_for_a_city
     service = GithubService.new
     job_data = service.get_positions_for_city("Chicago")
 
@@ -40,6 +40,8 @@ class GithubServiceTest < Minitest::Test
     job_data = service.get_positions_for_multiple_params("location=Chicago&full_time=true")
 
     assert_equal "Full Time", job_data[0]["type"]
+    assert_equal "Full Time", job_data[-1]["type"]
   end
+
 
 end
